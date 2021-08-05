@@ -15,6 +15,7 @@ import { HttpClientModule } from '@angular/common/http';
 import { MaterialModule } from './material.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
+import { rootReducer } from './reducers';
 
 @NgModule({
   declarations: [
@@ -33,8 +34,8 @@ import { FormsModule } from '@angular/forms';
     HttpClientModule,
     MaterialModule,
     FormsModule,
-    StoreModule.forRoot({}, {}),
-    BrowserAnimationsModule
+    StoreModule.forRoot(rootReducer),
+    BrowserAnimationsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

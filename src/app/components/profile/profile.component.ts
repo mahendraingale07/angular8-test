@@ -1,5 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { getTestBed } from '@angular/core/testing';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ApiService } from 'src/app/services/api.service';
+import { takeWhile } from 'rxjs/operators';
+import { Store } from '@ngrx/store';
+import { combineLatest } from 'rxjs';
 
 @Component({
   selector: 'app-profile',
@@ -21,7 +25,6 @@ export class ProfileComponent implements OnInit {
   getData(){
     this.apiService.getSingleUserList().subscribe((response: any) => {     
       this.data = response.data
-      console.log(this.data);
     }, (error: any) => {
       alert(error.error.error)
     })
